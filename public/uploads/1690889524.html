@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adisyon Hesaplayıcı</title>
+</head>
+<body>
+    <h1>Adisyon Hesaplayıcı</h1>
+
+    <form id="adisyonForm">
+        <label for="menu-item">Menü Öğesi:</label>
+        <select id="menu-item">
+            <option value="25">Yemek 1 - 25 TL</option>
+            <option value="30">Yemek 2 - 30 TL</option>
+            <option value="15">İçecek 1 - 15 TL</option>
+            <option value="10">İçecek 2 - 10 TL</option>
+        </select>
+
+        <label for="quantity">Miktar:</label>
+        <input type="number" id="quantity" value="1">
+
+        <button type="button" onclick="addToTotal()">Ekle</button>
+    </form>
+
+    <p>Toplam Tutar: <span id="total">0</span> TL</p>
+
+    <script>
+        function addToTotal() {
+            // Seçilen ürünün fiyatını ve miktarını alalım
+            const menuItem = document.getElementById("menu-item");
+            const price = parseFloat(menuItem.value);
+            const quantity = parseInt(document.getElementById("quantity").value);
+
+            // Toplam tutarı hesaplayalım
+            let total = parseFloat(document.getElementById("total").innerText);
+            total += price * quantity;
+
+            // Sonucu ekrana yazdıralım
+            document.getElementById("total").innerText = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+Adisyon hesaplama
